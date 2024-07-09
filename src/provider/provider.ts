@@ -597,6 +597,8 @@ export class YandexCloudProvider implements ServerlessPlugin {
             functionId: request.id,
             runtime: request.runtime,
             entrypoint: request.handler,
+            // vpc: request.vpc,
+            connectivity: {networkId: request.connectivityId},
             resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
             executionTimeout: {
                 seconds: request.timeout,

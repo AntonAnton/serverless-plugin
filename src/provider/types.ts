@@ -22,6 +22,7 @@ export interface UpdateFunctionRequest {
     memorySize?: number;
     timeout?: number;
     serviceAccount?: string;
+    connectivityId: string;
     artifact: CodeOrPackage;
     environment?: Record<string, string>;
 }
@@ -100,6 +101,7 @@ export interface ProviderConfig {
     timeout: string, // Can be overridden by function configuration
     environment: { [key: string]: string }, // Can be overridden by function configuration
     vpc: string, // Can be overridden by function configuration
+    connectivityId: string | undefined, // Can be overridden by function configuration
     labels: { [label: string]: string }, // Can be overridden by function configuration
     deploymentBucket: string | undefined;
     deploymentPrefix: string | undefined;

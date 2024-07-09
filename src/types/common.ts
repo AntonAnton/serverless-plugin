@@ -404,6 +404,8 @@ export interface ServerlessFunc {
     package?: Package | undefined;
     reservedConcurrency?: number | undefined;
     runtime?: string | undefined;
+    vpc?: string | undefined;
+    connectivityId?: string | undefined;
     timeout?: number | undefined;
     memorySize?: number | undefined;
     environment?: { [name: string]: string } | undefined;
