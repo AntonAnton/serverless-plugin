@@ -12,15 +12,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yandex-cloud/serverless-plugin.git"
+    "url": "https://github.com/AntonAnton/serverless-plugin.git"
   },
   "author": "Yandex LLC",
   "license": "MIT",
   "main": "dist/index.js",
   "bugs": {
-    "url": "https://github.com/yandex-cloud/serverless-plugin/issues"
+    "url": "https://github.com/AntonAnton/serverless-plugin/issues"
   },
-  "homepage": "https://github.com/yandex-cloud/serverless-plugin#readme",
+  "homepage": "https://github.com/AntonAnton/serverless-plugin#readme",
   "engines": {
     "node": ">=12.0.0"
   },

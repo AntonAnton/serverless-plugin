@@ -22,7 +22,7 @@ export interface UpdateFunctionRequest {
     memorySize?: number;
     timeout?: number;
     serviceAccount?: string;
-    connectivityId: string;
+    connectivityId?: string;
     artifact: CodeOrPackage;
     environment?: Record<string, string>;
 }
