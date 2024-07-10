@@ -63,7 +63,7 @@
     "build": "tsc -p .",
     "test": "jest -c config/jest.ts",
     "lint": "eslint src",
-    "prepare": "husky install",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {
