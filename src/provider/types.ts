@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/indent */
-import { PayloadFormatVersion } from '../types/common';
+import {AuthorizerObject, PayloadFormatVersion} from '../types/common';
 
 export interface InvokeFunctionRequest {
     functionId: string;
@@ -23,6 +23,7 @@ export interface UpdateFunctionRequest {
     timeout?: number;
     serviceAccount?: string;
     connectivityId?: string;
+    reservedConcurrency?: number;
     artifact: CodeOrPackage;
     environment?: Record<string, string>;
 }
@@ -102,6 +103,7 @@ export interface ProviderConfig {
     environment: { [key: string]: string }, // Can be overridden by function configuration
     vpc: string, // Can be overridden by function configuration
     connectivityId: string | undefined, // Can be overridden by function configuration
+    reservedConcurrency: number | undefined;
     labels: { [label: string]: string }, // Can be overridden by function configuration
     deploymentBucket: string | undefined;
     deploymentPrefix: string | undefined;
