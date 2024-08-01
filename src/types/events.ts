@@ -26,9 +26,10 @@ interface Http {
     path: string;
     method: HttpMethodAlias;
     eventFormat?: PayloadFormatVersion.V0 | PayloadFormatVersion.V1;
-    authorizer?: HttpAuthorizer | string;
+    authorizer?: HttpAuthorizer;
     request?: HttpRequestValidation;
     context?: Record<string, unknown>;
+    security?: unknown;
 }
 
 export enum S3Event {

@@ -3,6 +3,7 @@ import { OpenAPIV3 } from 'openapi-types';
 import { YandexCloudDeploy } from '../deploy/deploy';
 import { ProviderConfig } from '../provider/types';
 import {
+    AuthorizerObject,
     HttpMethod,
     HttpMethodAlias,
     HttpMethodAliases,
@@ -115,6 +116,23 @@ export class OpenApiSpec {
         const acc = func.getNewState()?.params.account;
         const serviceAccountId = acc ? this.deploy.getServiceAccountId(acc) : undefined;
         const payloadFormatVersion = http.eventFormat || (providerConfig?.httpApi.payload ?? PayloadFormatVersion.V0);
+
+    //         name?: string | undefined;
+    // resultTtlInSeconds?: number | string | undefined;
+    // identitySource?: string | undefined;
+    // identityValidationExpression?: string | undefined;
+    // type?: string | undefined;
+
+        ///type: http
+        //       scheme: basic
+        //       x-yc-apigateway-authorizer:
+        //         type: function
+        //         function_id: b095c95icnvb********
+        //         tag: "$latest"
+        //         service_account_id: ajehfe84hhl********
+        //         authorizer_result_ttl_in_seconds: 300
+        //         authorizer_result_caching_mode: path
+
         const operation: OperationObject<FunctionIntegration> = {
             'x-yc-apigateway-integration': {
                 type: IntegrationType.cloud_functions,
@@ -123,12 +141,14 @@ export class OpenApiSpec {
                 payload_format_version: payloadFormatVersion,
                 service_account_id: serviceAccountId,
                 context: http.context,
+
             },
             responses: {
                 200: {
                     description: 'ok',
                 },
             },
+
         };
         const { parameters } = http.request ?? {};
 
@@ -137,6 +157,18 @@ export class OpenApiSpec {
                 .map(([name, required]) => this.makeParameter(key, name, required));
 
             operation.parameters = (['paths', 'querystrings', 'headers'] as const).flatMap((x) => constructParams(x));
+        }
+        if (!http.authorizer === undefined) {
+            operation.security = [{
+                'x-yc-apigateway-authorizer': {
+                    type: http.authorizer.type,
+                    function_id: http.authorizer.identitySource,
+                    tag: "$latest",
+                    service_account_id: serviceAccountId,
+                    authorizer_result_ttl_in_seconds: http.authorizer.resultTtlInSeconds,
+                    authorizer_result_caching_mode: "path"
+                }
+            }]
         }
 
         return [http.path,
