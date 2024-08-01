@@ -405,7 +405,7 @@ export interface ServerlessFunc {
     reservedConcurrency?: number | undefined;
     runtime?: string | undefined;
     vpc?: string | undefined;
-    connectivityId?: string | undefined;
+    networkId?: string | undefined;
     timeout?: number | undefined;
     memorySize?: number | undefined;
     environment?: { [name: string]: string } | undefined;

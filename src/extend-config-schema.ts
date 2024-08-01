@@ -404,7 +404,7 @@ export const extendConfigSchema = (sls: Serverless) => {
                 timeout: { type: 'string' }, // Can be overridden by function configuration
                 environment: { $ref: '#/definitions/cloudFunctionEnvironmentVariables' }, // Can be overridden by function configuration
                 vpc: { type: 'string' }, // Can be overridden by function configuration
-                connectivityId: { type: 'string' }, // Can be overridden by function configuration
+                networkId: { type: 'string' }, // Can be overridden by function configuration
                 labels: { $ref: '#/definitions/resourceManagerLabels' }, // Can be overridden by function configuration
             },
         },
@@ -416,7 +416,7 @@ export const extendConfigSchema = (sls: Serverless) => {
                 timeout: { type: 'string' }, // Override provider configuration
                 environment: { $ref: '#/definitions/cloudFunctionEnvironmentVariables' }, // Override provider configuration
                 vpc: { type: 'string' }, // Override provider configuration
-                connectivityId: { type: 'string' }, // Can be overridden by function configuration
+                networkId: { type: 'string' }, // Can be overridden by function configuration
                 labels: { $ref: '#/definitions/resourceManagerLabels' }, // Override provider configuration
                 account: { type: 'string' },
                 package: {
