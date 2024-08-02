@@ -29,7 +29,6 @@ interface Http {
     authorizer?: HttpAuthorizer;
     request?: HttpRequestValidation;
     context?: Record<string, unknown>;
-    security?: unknown;
 }
 
 export enum S3Event {
