@@ -3,7 +3,6 @@ import { OpenAPIV3 } from 'openapi-types';
 import { YandexCloudDeploy } from '../deploy/deploy';
 import { ProviderConfig } from '../provider/types';
 import {
-    AuthorizerObject,
     HttpMethod,
     HttpMethodAlias,
     HttpMethodAliases,
@@ -116,7 +115,6 @@ export class OpenApiSpec {
         const acc = func.getNewState()?.params.account;
         const serviceAccountId = acc ? this.deploy.getServiceAccountId(acc) : undefined;
         const payloadFormatVersion = http.eventFormat || (providerConfig?.httpApi.payload ?? PayloadFormatVersion.V0);
-
         const operation: OperationObject<FunctionIntegration> = {
             'x-yc-apigateway-integration': {
                 type: IntegrationType.cloud_functions,

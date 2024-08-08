@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/indent */
-import {AuthorizerObject, PayloadFormatVersion} from '../types/common';
+import {PayloadFormatVersion} from '../types/common';
 
 export interface InvokeFunctionRequest {
     functionId: string;
