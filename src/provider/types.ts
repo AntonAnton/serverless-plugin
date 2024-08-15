@@ -23,6 +23,10 @@ export interface UpdateFunctionRequest {
     timeout?: number;
     serviceAccount?: string;
     networkId?: string;
+    storageMountsBucketId?: string | undefined;
+    storageMountsPrefix?: string | undefined;
+    storageMountsMountPointName?: string | undefined;
+    storageMountsReadOnly?: boolean | undefined;
     reservedConcurrency?: number;
     artifact: CodeOrPackage;
     environment?: Record<string, string>;
@@ -103,6 +107,10 @@ export interface ProviderConfig {
     environment: { [key: string]: string }, // Can be overridden by function configuration
     vpc: string, // Can be overridden by function configuration
     networkId: string | undefined, // Can be overridden by function configuration
+    storageMountsBucketId?: string | undefined;
+    storageMountsPrefix?: string | undefined;
+    storageMountsMountPointName?: string | undefined;
+    storageMountsReadOnly?: boolean | undefined;
     reservedConcurrency: number | undefined;
     labels: { [label: string]: string }, // Can be overridden by function configuration
     deploymentBucket: string | undefined;

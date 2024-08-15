@@ -405,6 +405,10 @@ export const extendConfigSchema = (sls: Serverless) => {
                 environment: { $ref: '#/definitions/cloudFunctionEnvironmentVariables' }, // Can be overridden by function configuration
                 vpc: { type: 'string' }, // Can be overridden by function configuration
                 networkId: { type: 'string' }, // Can be overridden by function configuration
+                storageMountsBucketId: { type: 'string' },
+                storageMountsPrefix: { type: 'string' },
+                storageMountsMountPointName: { type: 'string' },
+                storageMountsReadOnly: { type: 'boolean' },
                 labels: { $ref: '#/definitions/resourceManagerLabels' }, // Can be overridden by function configuration
             },
         },
@@ -417,6 +421,10 @@ export const extendConfigSchema = (sls: Serverless) => {
                 environment: { $ref: '#/definitions/cloudFunctionEnvironmentVariables' }, // Override provider configuration
                 vpc: { type: 'string' }, // Override provider configuration
                 networkId: { type: 'string' }, // Can be overridden by function configuration
+                storageMountsBucketId: { type: 'string' },
+                storageMountsPrefix: { type: 'string' },
+                storageMountsMountPointName: { type: 'string' },
+                storageMountsReadOnly: { type: 'boolean' },
                 labels: { $ref: '#/definitions/resourceManagerLabels' }, // Override provider configuration
                 account: { type: 'string' },
                 package: {

@@ -103,6 +103,7 @@ export class YandexCloudProvider implements ServerlessPlugin {
         this.serverless.setProvider(PROVIDER_NAME, this);
         this.hooks = {};
 
+
         // Init YC API client
         const config = getYcConfig();
         const sessionConfig = 'token' in config ? {
@@ -600,6 +601,14 @@ export class YandexCloudProvider implements ServerlessPlugin {
             reservedConcurrency: request.reservedConcurrency,
             // vpc: request.vpc,
             connectivity: {networkId: request.networkId},
+            storageMounts: [
+                    {
+                        bucketId: request.storageMountsBucketId,
+                        prefix: request.storageMountsPrefix,
+                        mountPointName: request.storageMountsMountPointName,
+                        readOnly: request.storageMountsReadOnly
+                    }
+                ],
             resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
             executionTimeout: {
                 seconds: request.timeout,

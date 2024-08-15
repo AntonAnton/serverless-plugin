@@ -406,6 +406,10 @@ export interface ServerlessFunc {
     runtime?: string | undefined;
     vpc?: string | undefined;
     networkId?: string | undefined;
+    storageMountsBucketId?: string | undefined;
+    storageMountsPrefix?: string | undefined;
+    storageMountsMountPointName?: string | undefined;
+    storageMountsReadOnly?: boolean | undefined;
     timeout?: number | undefined;
     memorySize?: number | undefined;
     environment?: { [name: string]: string } | undefined;
