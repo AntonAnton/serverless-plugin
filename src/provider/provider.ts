@@ -601,14 +601,14 @@ export class YandexCloudProvider implements ServerlessPlugin {
             reservedConcurrency: request.reservedConcurrency,
             // vpc: request.vpc,
             connectivity: {networkId: request.networkId},
-            storageMounts: [
-                    {
-                        bucketId: request.storageMountsBucketId,
-                        prefix: request.storageMountsPrefix,
-                        mountPointName: request.storageMountsMountPointName,
-                        readOnly: request.storageMountsReadOnly
-                    }
-                ],
+            // storageMounts: [
+            //         {
+            //             bucketId: request.storageMountsBucketId,
+            //             prefix: request.storageMountsPrefix,
+            //             mountPointName: request.storageMountsMountPointName,
+            //             readOnly: request.storageMountsReadOnly
+            //         }
+            //     ],
             resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
             executionTimeout: {
                 seconds: request.timeout,
