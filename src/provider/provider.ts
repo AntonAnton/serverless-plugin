@@ -596,48 +596,48 @@ export class YandexCloudProvider implements ServerlessPlugin {
     async updateFunction(request: UpdateFunctionRequest, progress?: ProgressReporter) {
         if (request.storageMountsBucketId) {
             const createVersionRequest: any = {
-            functionId: request.id,
-            runtime: request.runtime,
-            entrypoint: request.handler,
-            reservedConcurrency: request.reservedConcurrency,
-            connectivity: {networkId: request.networkId},
-            storageMounts: [
-                    {
-                        bucketId: request.storageMountsBucketId,
-                        prefix: request.storageMountsPrefix,
-                        mountPointName: request.storageMountsMountPointName,
-                        readOnly: request.storageMountsReadOnly
-                    }
-                ],
-            resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
-            executionTimeout: {
-                seconds: request.timeout,
-            },
-            serviceAccountId: request.serviceAccount,
-            environment: request.environment,
-        };
+                functionId: request.id,
+                runtime: request.runtime,
+                entrypoint: request.handler,
+                reservedConcurrency: request.reservedConcurrency,
+                connectivity: {networkId: request.networkId},
+                storageMounts: [
+                        {
+                            bucketId: request.storageMountsBucketId,
+                            prefix: request.storageMountsPrefix,
+                            mountPointName: request.storageMountsMountPointName,
+                            readOnly: request.storageMountsReadOnly
+                        }
+                    ],
+                resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
+                executionTimeout: {
+                    seconds: request.timeout,
+                },
+                serviceAccountId: request.serviceAccount,
+                environment: request.environment,
+            };
         } else {
             const createVersionRequest: any = {
-            functionId: request.id,
-            runtime: request.runtime,
-            entrypoint: request.handler,
-            reservedConcurrency: request.reservedConcurrency,
-            connectivity: {networkId: request.networkId},
-            // storageMounts: [
-            //         {
-            //             bucketId: request.storageMountsBucketId,
-            //             prefix: request.storageMountsPrefix,
-            //             mountPointName: request.storageMountsMountPointName,
-            //             readOnly: request.storageMountsReadOnly
-            //         }
-            //     ],
-            resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
-            executionTimeout: {
-                seconds: request.timeout,
-            },
-            serviceAccountId: request.serviceAccount,
-            environment: request.environment,
-        };
+                functionId: request.id,
+                runtime: request.runtime,
+                entrypoint: request.handler,
+                reservedConcurrency: request.reservedConcurrency,
+                connectivity: {networkId: request.networkId},
+                // storageMounts: [
+                //         {
+                //             bucketId: request.storageMountsBucketId,
+                //             prefix: request.storageMountsPrefix,
+                //             mountPointName: request.storageMountsMountPointName,
+                //             readOnly: request.storageMountsReadOnly
+                //         }
+                //     ],
+                resources: { memory: request.memorySize && (request.memorySize * 1024 * 1024) },
+                executionTimeout: {
+                    seconds: request.timeout,
+                },
+                serviceAccountId: request.serviceAccount,
+                environment: request.environment,
+            };
         }
 
         if ('code' in request.artifact) {
